@@ -1,0 +1,20 @@
+{
+  "name": "mostra",
+  "interface": {
+    "displayName": "Mostra"
+  },
+  "plugins": [
+    {
+      "name": "mostra",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

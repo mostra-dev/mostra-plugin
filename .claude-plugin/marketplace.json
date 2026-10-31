@@ -1,0 +1,31 @@
+{
+  "name": "mostra",
+  "owner": {
+    "name": "Mostra",
+    "url": "https://github.com/mostra-dev"
+  },
+  "description": "Communicate visually with the people you work for: write a React page, verify it, publish it behind a private link and get their answers back.",
+  "plugins": [
+    {
+      "name": "mostra",
+      "source": "./",
+      "description": "Communicate visually with the people you work for: write a React page, verify it, publish it behind a private link and get their answers back.",
+      "version": "0.8.0",
+      "author": {
+        "name": "Mostra",
+        "url": "https://github.com/mostra-dev"
+      },
+      "homepage": "https://github.com/mostra-dev/mostra",
+      "repository": "https://github.com/mostra-dev/mostra-plugin",
+      "license": "Apache-2.0",
+      "keywords": [
+        "artifacts",
+        "react",
+        "forms",
+        "dashboards",
+        "review",
+        "human-in-the-loop"
+      ]
+    }
+  ]
+}
