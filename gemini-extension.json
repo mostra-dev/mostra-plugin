@@ -1,5 +1,16 @@
 {
   "name": "mostra",
-  "version": "0.8.0",
-  "description": "Communicate visually with the people you work for: write a React page, verify it, publish it behind a private link and get their answers back."
+  "version": "0.9.0",
+  "description": "Communicate visually with the people you work for: write a React page, verify it, publish it behind a private link and get their answers back.",
+  "mcpServers": {
+    "mostra": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mostra/cli@0.9.0",
+        "mcp",
+        "--embedded"
+      ]
+    }
+  }
 }

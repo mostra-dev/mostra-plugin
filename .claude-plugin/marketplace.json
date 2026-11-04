@@ -10,7 +10,7 @@
       "name": "mostra",
       "source": "./",
       "description": "Communicate visually with the people you work for: write a React page, verify it, publish it behind a private link and get their answers back.",
-      "version": "0.8.0",
+      "version": "0.9.0",
       "author": {
         "name": "Mostra",
         "url": "https://github.com/mostra-dev"

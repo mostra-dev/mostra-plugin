@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "mostra": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mostra/cli@0.9.0",
+        "mcp",
+        "--embedded"
+      ]
+    }
+  }
+}
