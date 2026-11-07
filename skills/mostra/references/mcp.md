@@ -22,7 +22,7 @@ Use Mostra's tools when they're in your tool list (`artifact_create`, `artifact_
 | Write | your own file tools | `artifact_write` (whole files), `artifact_patch` (exact replacements or a unified diff) |
 | Verify | `mostra verify <dir>` | `artifact_verify`; `screenshots: "always"` returns both screenshots as images |
 | Publish | `mostra publish <dir>` | `artifact_publish`; its `url` is the default link |
-| Hand out the link | `mostra open <dir>` | `artifact_open` |
+| Hand out the link | `mostra open <dir> --browser` | `artifact_open` |
 | Wait | `mostra wait <dir> --until submitted` | `artifact_wait` with `until: "submitted"` |
 | Read the answers | `mostra results <dir>` | `artifact_results` (Markdown; `format: "json"` for the full structure) |
 
@@ -54,10 +54,10 @@ Links open on this computer only. To reach someone elsewhere, share it as [shari
 
 ## Adding the server to a client
 
-A client starts the server as `mostra mcp` over stdio, or `npx -y @mostra/cli@0.9.0 mcp` where `mostra` isn't installed. Its configuration names that command, for example:
+A client starts the server as `mostra mcp` over stdio, or `npx -y @mostra/cli@0.10.0 mcp` where `mostra` isn't installed. Its configuration names that command, for example:
 
 ```json
-{ "mcpServers": { "mostra": { "command": "npx", "args": ["-y", "@mostra/cli@0.9.0", "mcp"] } } }
+{ "mcpServers": { "mostra": { "command": "npx", "args": ["-y", "@mostra/cli@0.10.0", "mcp"] } } }
 ```
 
 For a client that speaks only HTTP, `mostra mcp --http` serves Streamable HTTP on `127.0.0.1` and prints its URL and a token on stderr; every request sends `Authorization: Bearer <token>` (set `MOSTRA_MCP_TOKEN` to choose it). `--workspace <dir>` chooses where new artifacts go.

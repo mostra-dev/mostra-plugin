@@ -4,7 +4,7 @@ description: Communicate visually with the user through Mostra. Use whenever sho
 license: Apache-2.0
 compatibility: Needs a shell that runs `mostra` (or `npx` with Node.js 22.19 or later) on macOS, Linux or Windows, x64 or arm64.
 metadata:
-  version: "0.9.0"
+  version: "0.10.0"
 ---
 
 # Mostra
@@ -13,7 +13,7 @@ Mostra turns a React page you write into an **artifact**: a web page a person op
 
 ## Running Mostra
 
-Run `mostra <command>`. When `mostra` isn't on the `PATH`, run `npx -y @mostra/cli@0.9.0 <command>` everywhere this Skill says `mostra`; the first run downloads Mostra's own runtime (no global Node.js needed beyond `npx`). Every command takes `--json` (one JSON envelope on stdout, logs on stderr) and `--help`. `mostra docs <topic>` prints the reference, including every diagnostic code's page (`mostra docs MOSTRA_FIELD_DUPLICATE_ID`). `mostra list` lists the artifacts you've published, and `mostra status` shows the running instance.
+Run `mostra <command>`. When `mostra` isn't on the `PATH`, run `npx -y @mostra/cli@0.10.0 <command>` everywhere this Skill says `mostra`; the first run downloads Mostra's own runtime (no global Node.js needed beyond `npx`). Every command takes `--json` (one JSON envelope on stdout, logs on stderr) and `--help`. `mostra docs <topic>` prints the reference, including every diagnostic code's page (`mostra docs MOSTRA_FIELD_DUPLICATE_ID`). `mostra list` lists the artifacts you've published, and `mostra status` shows the running instance.
 
 When Mostra's tools are in your tool list (`artifact_create`, `artifact_verify` and the rest), use them instead: each step below has its tool, and everything else here holds unchanged. See [references/mcp.md](references/mcp.md).
 
@@ -57,7 +57,7 @@ Each step ends when its check holds. Don't hand a link out before step 4 passes.
    Mostra draws the Submit button in its own frame around your page; `useSubmitControl` names it, and `required` fields block it until they're answered. Make it look considered: [references/design.md](references/design.md) has a baseline stylesheet and the rules for pages people answer. *Done when* every answer you need is a field with a label.
 4. **Verify until it passes.** `mostra verify <dir> --screenshots always`. It type-checks, builds, renders the page headlessly, clicks through it, runs an accessibility check and screenshots it at 1280×800 and 390×844. Fix every error, then **open both screenshots and look at them** (about 1,300 and 450 image tokens). Warnings that start with "Observed only" describe what verify saw; judge them, and leave working code alone. *Done when* the status is `pass` and the screenshots show what you meant at both sizes. More in [references/verify.md](references/verify.md).
 5. **Publish.** `mostra publish <dir>` prints the version and the capability URL. Publishing again after an edit makes a new version; open pages offer the person the new one, and answers carry over by field ID. *Done when* you have the link.
-6. **Hand the link over.** Say who is asking and why, what the page is for, and roughly how long it takes. On this machine, `mostra open <dir>` opens it in the browser. For a phone or another person, see [references/sharing.md](references/sharing.md): one link is one person's draft, so give each person their own link. *Done when* the person has the link and knows what to do.
+6. **Hand the link over.** Say who is asking and why, what the page is for, and roughly how long it takes. For the person at this machine, `mostra open <dir> --browser` opens it in their browser, and its output says when none could be opened. For a phone or another person, see [references/sharing.md](references/sharing.md): one link is one person's draft, so give each person their own link. *Done when* the person has the link and knows what to do.
 7. **Wait for the answer.** `mostra wait <dir> --until submitted --timeout 10m`. Exit code 0 means submitted; 5 means still waiting, with nothing lost: wait again, or continue other work and check later. *Done when* it exits 0.
 8. **Read the results.** `mostra results <dir>` prints the submission as Markdown (`--format json` for JSON). Act on it. *Done when* you've used every answer.
 
