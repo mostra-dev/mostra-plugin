@@ -4,7 +4,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@mostra/cli@0.15.0",
+        "@mostra/cli@0.15.1",
         "mcp",
         "--embedded"
       ]
