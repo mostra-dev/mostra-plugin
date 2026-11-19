@@ -1,7 +1,7 @@
 {
   "name": "mostra",
   "displayName": "Mostra",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "description": "Communicate visually with the people you work for: write a React page, verify it, publish it behind a private link and get their answers back.",
   "author": {
     "name": "Mostra",
