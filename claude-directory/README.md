@@ -2,7 +2,7 @@
 
 Mostra is the agent artifact runtime. Your agent writes an ordinary React page (questions, a choice between options, a plan to approve, a report, a dashboard), checks it in a headless browser, and publishes it on your machine behind a private link. People answer in the page; their answers are saved as they type and come back to the agent as results.
 
-This plugin gives Claude the Mostra Agent Skill: how to write, verify, publish and share an artifact, and read the answers back. It also connects Mostra's remote MCP server, whose tools take Claude through the same steps from any Claude app. Where Claude has a shell, as in Claude Code, the Skill can run Mostra 0.18.0 itself, through `npx -y @mostra/cli@0.18.0` when `mostra` isn't installed.
+This plugin gives Claude the Mostra Agent Skill: how to write, verify, publish and share an artifact, and read the answers back. It also connects Mostra's remote MCP server, whose tools take Claude through the same steps from any Claude app. Where Claude has a shell, as in Claude Code, the Skill can run Mostra 0.19.0 itself, through `npx -y @mostra/cli@0.19.0` when `mostra` isn't installed.
 
 This is the build of Mostra's plugin for Claude's directory. The full plugin, which also starts Mostra's local MCP server and installs in Claude Code, Codex, GitHub Copilot CLI, Gemini CLI, Cursor and other agents, is the root of https://github.com/mostra-dev/mostra-plugin. The `mostra` command line is the npm package `@mostra/cli`. Mostra's source, documentation and issues are at https://github.com/mostra-dev/mostra.
 
@@ -14,10 +14,10 @@ The plugin's one MCP server is Mostra's remote server at `https://api.mostradev.
 
 The plugin has no hooks and starts no program. When Claude has a shell and follows the Skill:
 
-- **It runs `mostra`** on your computer, or `npx -y @mostra/cli@0.18.0` where `mostra` isn't installed.
+- **It runs `mostra`** on your computer, or `npx -y @mostra/cli@0.19.0` where `mostra` isn't installed.
 - **The first run downloads Mostra** (no account, nothing sent about you):
   - the `@mostra/cli` package from the npm registry (`registry.npmjs.org`, or the registry your npm is set to);
-  - Mostra's runtime for your platform from its GitHub release (`github.com/mostra-dev/mostra/releases/download/v0.18.0/`, served from GitHub's download hosts), checked against the SHA-256 the package pins;
+  - Mostra's runtime for your platform from its GitHub release (`github.com/mostra-dev/mostra/releases/download/v0.19.0/`, served from GitHub's download hosts), checked against the SHA-256 the package pins;
   - the headless Chromium that `mostra verify` renders pages in, from Playwright's download server (`cdn.playwright.dev`), checked file by file against the pins in the runtime.
 - **Packages your agent's pages import** that Mostra doesn't already carry are installed from the npm registry, the first time a page needs them.
 - **Pages and their server code run on your computer.** Mostra serves them on `127.0.0.1` only, behind private links. What a page or its server code does (call an API, send an email) is what your agent wrote; Mostra adds no restrictions and no network calls of its own.
@@ -25,7 +25,7 @@ The plugin has no hooks and starts no program. When Claude has a shell and follo
 
 ## Usage data
 
-Mostra 0.18.0 sends no usage data: this release's `mostra` command has no telemetry endpoint. A later release that can send anonymous usage events will say so here, name its endpoint, and list its events in `mostra docs telemetry`.
+Mostra 0.19.0 sends no usage data: this release's `mostra` command has no telemetry endpoint. A later release that can send anonymous usage events will say so here, name its endpoint, and list its events in `mostra docs telemetry`.
 
 Turn it off with any of these: `mostra telemetry off`, `DO_NOT_TRACK=1` or `MOSTRA_TELEMETRY=0` in the environment. Mostra started by a program on your behalf (an SDK, a host application, or an MCP server a plugin starts) never sends usage data.
 
