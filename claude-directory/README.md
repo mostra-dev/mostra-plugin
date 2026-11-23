@@ -2,6 +2,8 @@
 
 Mostra is the agent artifact runtime. Your agent writes an ordinary React page (questions, a choice between options, a plan to approve, a report, a dashboard), checks it in a headless browser, and publishes it on your machine behind a private link. People answer in the page; their answers are saved as they type and come back to the agent as results.
 
+**Try it:** ask Claude "Show me what Mostra can do", and it builds one live page for your own work.
+
 This plugin gives Claude the Mostra Agent Skill: how to write, verify, publish and share an artifact, and read the answers back. It also connects Mostra's remote MCP server, whose tools take Claude through the same steps from any Claude app. Where Claude has a shell, as in Claude Code, the Skill can run Mostra 0.19.0 itself, through `npx -y @mostra/cli@0.19.0` when `mostra` isn't installed.
 
 This is the build of Mostra's plugin for Claude's directory. The full plugin, which also starts Mostra's local MCP server and installs in Claude Code, Codex, GitHub Copilot CLI, Gemini CLI, Cursor and other agents, is the root of https://github.com/mostra-dev/mostra-plugin. The `mostra` command line is the npm package `@mostra/cli`. Mostra's source, documentation and issues are at https://github.com/mostra-dev/mostra.
