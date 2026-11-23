@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mostra-remote": {
+      "type": "http",
+      "url": "https://api.mostradev.com/mcp"
+    }
+  }
+}
