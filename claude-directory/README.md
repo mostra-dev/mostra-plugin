@@ -15,7 +15,7 @@ The plugin's one MCP server is Mostra's remote server at `https://api.mostradev.
 The plugin has no hooks and starts no program. When Claude has a shell and follows the Skill:
 
 - **It runs `mostra`** on your computer, or `npx -y @mostra/cli@0.18.0` where `mostra` isn't installed.
-- **The first run downloads Mostra** (no account, nothing sent about you), the MCP server's first start included:
+- **The first run downloads Mostra** (no account, nothing sent about you):
   - the `@mostra/cli` package from the npm registry (`registry.npmjs.org`, or the registry your npm is set to);
   - Mostra's runtime for your platform from its GitHub release (`github.com/mostra-dev/mostra/releases/download/v0.18.0/`, served from GitHub's download hosts), checked against the SHA-256 the package pins;
   - the headless Chromium that `mostra verify` renders pages in, from Playwright's download server (`cdn.playwright.dev`), checked file by file against the pins in the runtime.
