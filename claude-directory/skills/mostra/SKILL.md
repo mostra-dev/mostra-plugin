@@ -4,7 +4,7 @@ description: Communicate visually with the user through Mostra. Use whenever sho
 license: Apache-2.0
 compatibility: Needs a shell that runs `mostra` (or `npx` with Node.js 22.19 or later) on macOS, Linux or Windows, x64 or arm64, or Mostra's tools from a connector (`artifact_create` and the rest), which is the only way in on the Claude apps.
 metadata:
-  version: "0.20.0"
+  version: "0.21.0"
 ---
 
 # Mostra
@@ -13,7 +13,7 @@ Mostra turns a React page you write into an **artifact**: a web page a person op
 
 ## Running Mostra
 
-Run `mostra <command>`. When `mostra` isn't on the `PATH`, run `npx -y @mostra/cli@0.20.0 <command>` everywhere this Skill says `mostra`; the first run downloads Mostra's own runtime (no global Node.js needed beyond `npx`). Every command takes `--json` (one JSON envelope on stdout, logs on stderr) and `--help`. `mostra docs <topic>` prints the reference, including every diagnostic code's page (`mostra docs MOSTRA_FIELD_DUPLICATE_ID`). `mostra list` lists the artifacts you've published, and `mostra status` shows the running instance.
+Run `mostra <command>`. When `mostra` isn't on the `PATH`, run `npx -y @mostra/cli@0.21.0 <command>` everywhere this Skill says `mostra`; the first run downloads Mostra's own runtime (no global Node.js needed beyond `npx`). Every command takes `--json` (one JSON envelope on stdout, logs on stderr) and `--help`. `mostra docs <topic>` prints the reference, including every diagnostic code's page (`mostra docs MOSTRA_FIELD_DUPLICATE_ID`). `mostra list` lists the artifacts you've published, and `mostra status` shows the running instance.
 
 When Mostra's tools are in your tool list (`artifact_create`, `artifact_verify` and the rest), use them instead: each step below has its tool, and everything else here holds unchanged. See [references/mcp.md](references/mcp.md).
 
@@ -76,6 +76,8 @@ Each step ends when its check holds. Don't hand a link out before step 4 passes.
 | Compare candidates and choose one | `ReviewSet`, `Candidate` from `@mostra/kit/review` | [review.md](references/review.md) |
 | Read the person's comments, with a picture of each place | `mostra review export <dir> --out ./review` | [review.md](references/review.md) |
 | A button that does something real (send, file, deploy) | a `"use server"` function, run with `useAction(fn, { key })` | [server.md](references/server.md) |
+| Your project's own front end, live in the page | `demos` in the manifest, `WebDemo` from `@mostra/kit/demo`, `mostra demo build` | [demos.md](references/demos.md) |
+| The page as files: a folder, one HTML file, a snapshot | `mostra export <dir> --as static` (or `html`, `snapshot`) | [sharing.md](references/sharing.md#sending-the-page-as-files) |
 | Secrets for that code | `mostra secret set NAME`, then `secret("NAME")` in server code | [server.md](references/server.md) |
 | Data that updates by itself | `defineLive` in `live.ts`, `useLive(key)` in the page, `mostra push` from you | [long-lived.md](references/long-lived.md) |
 | State everyone shares and you can edit | `useField(id, initial, { scope: "artifact" })`, `mostra state set` | [long-lived.md](references/long-lived.md) |
@@ -124,6 +126,7 @@ Read the one you need when you need it.
 | [references/server.md](references/server.md) | The page must do something real: actions, secrets, idempotency |
 | [references/long-lived.md](references/long-lived.md) | A page that lives for days: shared state, live data, `none` policy, always-on |
 | [references/sharing.md](references/sharing.md) | Someone other than the person at this machine opens it, or on another device |
+| [references/demos.md](references/demos.md) | The page shows your project's own front end (an app it builds), or you send the page as a file with one |
 | [references/review.md](references/review.md) | The person compares candidates and chooses one, or comments on the page, and you act on the comments |
 | [references/teams.md](references/teams.md) | Several people answer it or work on it together: personal links, waiting for everyone, who is here |
 | [references/libraries.md](references/libraries.md) | Using charts, tables, motion or UI primitives, or an import fails |
